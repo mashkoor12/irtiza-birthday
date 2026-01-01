@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Irtiza ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins,sans-serif;background:linear-gradient(135deg,#ffd6e8,#fff1f8);overflow:hidden}
+.page{display:none;min-height:100vh;padding:30px;text-align:center;justify-content:center;align-items:center;flex-direction:column}
+.page.active{display:flex;animation:fade 1s ease}
+@keyframes fade{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+h1{font-family:Pacifico,cursive;color:#ff5fa2;font-size:2.4rem;margin-bottom:15px}
+p{max-width:520px;color:#555;line-height:1.7;margin-bottom:25px}
+.btn{padding:14px 34px;border-radius:30px;border:none;background:linear-gradient(135deg,#ff5fa2,#ff87c5);color:#fff;font-size:1rem;cursor:pointer;box-shadow:0 10px 25px rgba(255,95,162,.4)}
+.count{font-size:5rem;color:#ff5fa2;font-weight:600}
+.firework{position:absolute;width:6px;height:6px;background:pink;border-radius:50%;animation:explode 1s ease-out forwards}
+@keyframes explode{to{transform:translate(var(--x),var(--y)) scale(0);opacity:0}}
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;max-width:640px}
+.photos img{width:100%;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.15)}
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div class="page active" id="page1">
+<h1>Ready My Love? 💖</h1>
+<div class="count" id="count">3</div>
+</div>
+
+<!-- Page 2 -->
+<div class="page" id="page2">
+<h1>Let's Celebrate 🎉</h1>
+<button class="btn" onclick="goToPage(3);fireworks();">Let's Celebrate Your Birthday 💕</button>
+</div>
+
+<!-- Page 3 -->
+<div class="page" id="page3">
+<h1>Happy Birthday My Love Irtiza ❤️</h1>
+<p>You are the most beautiful part of my life. Your smile, your care, your love — everything about you makes my world brighter every single day.</p>
+<button class="btn" onclick="goToPage(4)">One More Surprise 🎁</button>
+</div>
+
+<!-- Page 4 -->
+<div class="page" id="page4">
+<h1>How Much I Love You 💕</h1>
+<p>I love you more than words can ever explain. You are my peace, my happiness, my safe place. Every heartbeat of mine carries your name, and every dream of mine has you in it.</p>
+<button class="btn" onclick="goToPage(5)">Last Surprise 💖</button>
+</div>
+
+<!-- Page 5 -->
+<div class="page" id="page5">
+<h1>Our Memories 📸</h1>
+<p>Every moment with you is my favorite memory.</p>
+<div class="photos">
+<img src="data:image/jpeg;base64,\/9j\/4AAQSkZJRgABAQAAAQABAAD"+"">
+<img src="data:image/jpeg;base64,\/9j\/4AAQSkZJRgABAQAAAQABAAD"+"">
+<img src="data:image/jpeg;base64,\/9j\/4AAQSkZJRgABAQAAAQABAAD"+"">
+<img src="data:image/jpeg;base64,\/9j\/4AAQSkZJRgABAQAAAQABAAD"+"">
+</div>
+</div>
+
+<script>
+let c=3;const countEl=document.getElementById('count');const interval=setInterval(()=>{c--;if(c===0){clearInterval(interval);goToPage(2)}else{countEl.textContent=c}},1000);
+function goToPage(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page'+n).classList.add('active')}
+function fireworks(){for(let i=0;i<40;i++){const f=document.createElement('div');f.className='firework';f.style.left=Math.random()*window.innerWidth+'px';f.style.top=Math.random()*window.innerHeight+'px';f.style.setProperty('--x',(Math.random()*200-100)+'px');f.style.setProperty('--y',(Math.random()*200-100)+'px');document.body.appendChild(f);setTimeout(()=>f.remove(),1000)}}
+</script>
+</body>
+</html>
